@@ -18,7 +18,7 @@ Console.WriteLine(wallet.GetAddress());
 var balance = await wallet.GetTotalBalance();
 
 //Send Transaction
-var tx = await wallet.PushTx("tb1qrgw3m5zt8yvy6mcrag4252hm8tpvwr7qyp3l6m", 0.01m, 0.00001m);
+var tx = await wallet.PushTxAsync("tb1qrgw3m5zt8yvy6mcrag4252hm8tpvwr7qyp3l6m", 0.01m, 0.00001m);
 //Log Tx Hash
 Console.WriteLine(tx);
 
@@ -29,4 +29,4 @@ Console.WriteLine(tx);
   ScriptPubKeyType is the type of address used to create different types of addresses.Legacy,SegWit etc.
   
   
-• wallet.PushTx takes 3 arguments: Destination Address (address where you send coins), Amount (the total amount of coins you send), and Fee (commission that goes to the miners).
+• wallet.PushTxAsync takes 3 arguments: Destination Address (address where you send coins), Amount (the total amount of coins you send), and Fee (commission that goes to the miners).
