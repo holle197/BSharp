@@ -11,7 +11,7 @@ namespace BSharp.ExtAPI.UTxOFetcher
             this._httpClient = new HttpClient();
         }
 
-        public async Task<IUTxO[]?> FetchUTxOsAsync(string networkUrl, string address)
+        public async Task<IUTxO[]?> FetchUTxOsAsync(Networks networkUrl, string address)
         {
             var apiCall = await _httpClient.GetAsync(UTxOUrls.UrlFor(networkUrl) + address);
             var asStr = await apiCall.Content.ReadAsStringAsync();

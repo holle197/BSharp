@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSharp.ExtAPI", "BSharp.ExtAPI\BSharp.ExtAPI.csproj", "{D227EE56-19DE-4311-8A86-DE96FA1EF31E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BSharp.ExtAPI", "BSharp.ExtAPI\BSharp.ExtAPI.csproj", "{D227EE56-19DE-4311-8A86-DE96FA1EF31E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSharp.Wallet", "BSharp.Wallet\BSharp.Wallet.csproj", "{9BF0BB5F-5F7B-4410-B288-7F6BFAC5B8B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BSharp.Wallet", "BSharp.Wallet\BSharp.Wallet.csproj", "{9BF0BB5F-5F7B-4410-B288-7F6BFAC5B8B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{D1CF91BC-F2F4-4A3F-B65B-1A507D6D0F94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9BF0BB5F-5F7B-4410-B288-7F6BFAC5B8B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BF0BB5F-5F7B-4410-B288-7F6BFAC5B8B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BF0BB5F-5F7B-4410-B288-7F6BFAC5B8B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1CF91BC-F2F4-4A3F-B65B-1A507D6D0F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1CF91BC-F2F4-4A3F-B65B-1A507D6D0F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1CF91BC-F2F4-4A3F-B65B-1A507D6D0F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1CF91BC-F2F4-4A3F-B65B-1A507D6D0F94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

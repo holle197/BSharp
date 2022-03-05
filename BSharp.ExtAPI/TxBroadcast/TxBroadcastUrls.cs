@@ -2,18 +2,18 @@
 {
     internal static class TxBroadcastUrls
     {
-        private static readonly Dictionary<string, string> _urls = new()
+        private static readonly Dictionary<Networks, string> _urls = new()
         {
-            { "BtcM", "https://sochain.com/api/v2/send_tx/BTC" },
-            { "LtcM", "https://sochain.com/api/v2/send_tx/LTC" },
-            { "DogeM", "https://sochain.com/api/v2/send_tx/DOGE" },
+            { Networks.BtcMainnet, "https://sochain.com/api/v2/send_tx/BTC" },
+            { Networks.LtcMainnet, "https://sochain.com/api/v2/send_tx/LTC" },
+            { Networks.DogeMainnet, "https://sochain.com/api/v2/send_tx/DOGE" },
 
-            { "BtcT", "https://sochain.com/api/v2/send_tx/BTCTEST" },
-            { "LtcT", "https://sochain.com/api/v2/send_tx/LTCTEST" },
-            { "DogeT", "https://sochain.com/api/v2/send_tx/DOGETEST" },
+            { Networks.BtcTestnet, "https://sochain.com/api/v2/send_tx/BTCTEST" },
+            { Networks.LtcTestnet, "https://sochain.com/api/v2/send_tx/LTCTEST" },
+            { Networks.DogeTestnet, "https://sochain.com/api/v2/send_tx/DOGETEST" },
         };
 
-        public static string UrlFor(string network)
+        public static string UrlFor(Networks network)
         {
             return _urls[network];
         }

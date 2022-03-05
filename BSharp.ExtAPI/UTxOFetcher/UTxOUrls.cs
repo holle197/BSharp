@@ -2,18 +2,18 @@
 {
     internal static class UTxOUrls
     {
-        private static readonly Dictionary<string, string> _urls = new()
+        private static readonly Dictionary<Networks, string> _urls = new()
         {
-            { "BtcM", "https://sochain.com/api/v2/get_tx_unspent/BTC/" },
-            { "LtcM", "https://sochain.com/api/v2/get_tx_unspent/LTC/" },
-            { "DogeM", "https://sochain.com/api/v2/get_tx_unspent/DOGE/" },
+            { Networks.BtcMainnet, "https://sochain.com/api/v2/get_tx_unspent/BTC/" },
+            { Networks.LtcMainnet, "https://sochain.com/api/v2/get_tx_unspent/LTC/" },
+            { Networks.DogeMainnet, "https://sochain.com/api/v2/get_tx_unspent/DOGE/" },
 
-            { "BtcT", "https://sochain.com/api/v2/get_tx_unspent/BTCTEST/" },
-            { "LtcT", "https://sochain.com/api/v2/get_tx_unspent/LTCTEST/" },
-            { "DogeT", "https://sochain.com/api/v2/get_tx_unspent/DOGETEST/" }
+            { Networks.BtcTestnet, "https://sochain.com/api/v2/get_tx_unspent/BTCTEST/" },
+            { Networks.LtcTestnet, "https://sochain.com/api/v2/get_tx_unspent/LTCTEST/" },
+            { Networks.DogeTestnet, "https://sochain.com/api/v2/get_tx_unspent/DOGETEST/" }
         };
 
-        public static string UrlFor(string network)
+        public static string UrlFor(Networks network)
         {
             return _urls[network];
         }

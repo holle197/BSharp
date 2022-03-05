@@ -5,7 +5,7 @@ namespace BSharp.ExtAPI.TxBroadcast
 {
     public class TxPusher
     {
-        public static async Task<string?> BroadcastRawTxAsync(string networkUrl, string txHex)
+        public static async Task<string?> BroadcastRawTxAsync(Networks networkUrl, string txHex)
         {
             try
             {

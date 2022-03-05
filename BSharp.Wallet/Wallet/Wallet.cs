@@ -1,4 +1,5 @@
-﻿using BSharp.ExtAPI.TxBroadcast;
+﻿using BSharp.ExtAPI;
+using BSharp.ExtAPI.TxBroadcast;
 using BSharp.ExtAPI.UTxOFetcher;
 using BSharp.ExtAPI.UTxOFetcher.UTxO;
 using BSharp.Wallet.SHA;
@@ -35,14 +36,12 @@ namespace BSharp.Wallet.Wallet
             return Key.GetAddress(AddrType, Network).ToString();
         }
 
-        public async Task<string?> PushTx(string destinationAddr, decimal amount, decimal fee)
+        public async Task<string?> PushTxAsync(string destinationAddr, decimal amount, decimal fee)
         {
             var utxos = await FetchAllUtxosAsync();
             if (utxos is null) return "Cannot Fetch UTxOs.";
 
             var txModel = new TxModel(Network, Key, GetAddress(), AddrType, utxos, destinationAddr, amount, fee);
-            Console.WriteLine(txModel.Fee);
-            Console.WriteLine(txModel.Amount);
 
             if (TxInputValidation(txModel) is not null) return TxInputValidation(txModel);
             if (!HaveEnoughFunds(txModel)) return "Insufficient Funds.";
@@ -70,13 +69,12 @@ namespace BSharp.Wallet.Wallet
         private async Task<IUTxO[]?> FetchAllUtxosAsync()
         {
             var fetcher = new UTxOFetcher();
-            var network = ChooseNetwork(Networks);
-            return await fetcher.FetchUTxOsAsync(network, GetAddress());
+            return await fetcher.FetchUTxOsAsync(Networks, GetAddress());
         }
 
         private async Task<string?> BroadcastTx(string txHex)
         {
-            return await TxPusher.BroadcastRawTxAsync(ChooseNetwork(Networks), txHex);
+            return await TxPusher.BroadcastRawTxAsync(Networks, txHex);
         }
 #nullable enable
         private string? TxInputValidation(TxModel txModel)
@@ -114,18 +112,5 @@ namespace BSharp.Wallet.Wallet
             };
         }
 
-        private static string ChooseNetwork(Networks network)
-        {
-            return network switch
-            {
-                Networks.BtcMainnet => "BtcM",
-                Networks.LtcMainnet => "LtcM",
-                Networks.DogeMainnet => "DogeM",
-                Networks.BtcTestnet => "BtcT",
-                Networks.LtcTestnet => "LtcT",
-                Networks.DogeTestnet => "DogeT",
-                _ => "BtcT",
-            };
-        }
     }
 }
